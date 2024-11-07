@@ -1,0 +1,48 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    /* background: white url("images/nba_logos.png") no-repeat center center fixed; */
+}
+
+h1 {
+    color: #0044cc;
+    text-align: center;
+}
+
+/* List Styles */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background-color: #ffffff;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    text-decoration: none;
+    color: #0044cc;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Player Detail Page */
+p {
+    font-size: 1.2em;
+}
+
+p:nth-child(even) {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+}

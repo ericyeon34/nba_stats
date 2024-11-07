@@ -1,0 +1,38 @@
+name: django_env
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - bzip2=1.0.8=h2bbff1b_6
+  - ca-certificates=2024.7.2=haa95532_0
+  - libffi=3.4.4=hd77b12b_1
+  - openssl=3.0.15=h827c3e9_0
+  - pip=24.2=py310haa95532_0
+  - python=3.10.14=he1021f5_1
+  - setuptools=72.1.0=py310haa95532_0
+  - sqlite=3.45.3=h2bbff1b_0
+  - tk=8.6.14=h0416ee5_0
+  - vc=14.40=h2eaa2aa_0
+  - vs2015_runtime=14.40.33807=h98bb1dd_0
+  - wheel=0.43.0=py310haa95532_0
+  - xz=5.4.6=h8cc25b3_1
+  - zlib=1.2.13=h8cc25b3_1
+  - pip:
+      - asgiref==3.8.1
+      - certifi==2024.8.30
+      - charset-normalizer==3.3.2
+      - django==5.1.1
+      - idna==3.8
+      - mysqlclient==2.2.4
+      - nba-api==1.5.2
+      - numpy==1.26.4
+      - pandas==2.2.2
+      - python-dateutil==2.9.0.post0
+      - pytz==2024.1
+      - requests==2.32.3
+      - six==1.16.0
+      - sqlparse==0.5.1
+      - typing-extensions==4.12.2
+      - tzdata==2024.1
+      - urllib3==2.2.2
+prefix: C:\Users\Eric\miniconda3\envs\django_env

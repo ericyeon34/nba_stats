@@ -1,9 +1,10 @@
 from django.core.management.base import BaseCommand
 from nba_api.stats.static import players, teams
 from nba_api.stats.endpoints import playercareerstats
-from nba_data.models import Players
+from nba_data.models import Player
 import pandas as pd
 from django.db import IntegrityError
+import time
 
 class Command(BaseCommand):
     help = 'Fetches player data from NBA API and populates the database'
@@ -24,14 +25,14 @@ class Command(BaseCommand):
                     if df_career_totals_regular_season.empty:
                         continue
 
-                    existing_player = Players.objects.filter(player_id=player['id']).first()
+                    existing_player = Player.objects.filter(player_id=player['id']).first()
 
                     if existing_player:
                         # Update player logic here (if needed)
                         continue
                     else:
                         # Add new player to the database
-                        new_player = Players(
+                        new_player = Player(
                             player_id=player['id'],
                             full_name=player['full_name'],
                             first_name=player['first_name'],
@@ -67,3 +68,5 @@ class Command(BaseCommand):
             except Exception as e:
                 self.stdout.write(self.style.ERROR(f"Error adding player {player['full_name']} to database: {str(e)}"))
                 continue
+
+            time.sleep(1)

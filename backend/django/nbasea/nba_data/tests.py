@@ -1,12 +1,12 @@
 from django.test import TestCase
 from django.urls import reverse
-from .models import Players
+from .models import Player
 
 # Create your tests here.
 
 class PlayerModelTest(TestCase):
     def setUp(self):
-        self.player = Players.objects.create(
+        self.player = Player.objects.create(
             player_id=1,
             full_name='Test Player',
             first_name='Test',
@@ -38,12 +38,12 @@ class PlayerModelTest(TestCase):
 
         def test_player_creation(self):
             """Test the player model creation."""
-            self.assertTrue(isinstance(self.player, Players))
+            self.assertTrue(isinstance(self.player, Player))
             self.assertEqual(self.player.__str__(), self.player.full_name)
         
 class PlayerListViewTest(TestCase):
     def setUp(self):
-        Players.objects.create(
+        Player.objects.create(
             player_id=1,
             full_name='Test Player',
             first_name='Test',
@@ -73,7 +73,7 @@ class PlayerListViewTest(TestCase):
             points=1
         )
 
-        Players.objects.create(
+        Player.objects.create(
             player_id=2,
             full_name='Test Player 2',
             first_name='Test',
@@ -113,7 +113,7 @@ class PlayerListViewTest(TestCase):
 
 class PlayerDetailViewTest(TestCase):
     def setUp(self):
-        self.player = Players.objects.create(
+        self.player = Player.objects.create(
             player_id=1,
             full_name='Test Player',
             first_name='Test',
@@ -196,10 +196,10 @@ class FetchDataCommandTest(TestCase):
         call_command('fetch_data')
 
         # Check that the database has been populated correctly
-        self.assertEqual(Players.objects.count(), 2)
+        self.assertEqual(Player.objects.count(), 2)
 
         # Check that the first player has been added correctly
-        test_player1 = Players.objects.get(player_id=1)
+        test_player1 = Player.objects.get(player_id=1)
         self.assertEqual(test_player1.full_name, 'Test Player')
         self.assertEqual(test_player1.first_name, 'Test')
         self.assertEqual(test_player1.last_name, 'Player')
@@ -228,7 +228,7 @@ class FetchDataCommandTest(TestCase):
         self.assertEqual(test_player1.points, 1)
 
         # Check that the second player has been added correctly
-        test_player2 = Players.objects.get(player_id=2)
+        test_player2 = Player.objects.get(player_id=2)
         self.assertEqual(test_player2.full_name, 'Test Player 2')
         self.assertEqual(test_player2.first_name, 'Test')
         self.assertEqual(test_player2.last_name, 'Player 2')

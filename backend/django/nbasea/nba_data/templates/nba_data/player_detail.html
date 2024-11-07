@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Player</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nba_data/style.css' %}">
 </head>
 <body>
     <h1>{{ player.first_name }} {{ player.last_name }}</h1>
